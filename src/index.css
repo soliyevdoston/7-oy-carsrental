@@ -1,1 +1,12 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;800;900&display=swap");
+
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+.mycon {
+  max-width: 1400px;
+  width: 90%;
+  margin: 0 auto;
+}
