@@ -1,4 +1,10 @@
-const SelectCategory = () => {
+import { useState } from "react";
+import { useSelector } from "react-redux";
+
+const SelectCategory = ({ type, setType }) => {
+  const [type2, setTypes] = useState([]);
+  const data = useSelector((state) => state.carsdata.data);
+  let types = ["all", ...new Set(data?.data.map((car) => car.type))];
   return (
     <section className="category ">
       <div className="mycon flex flex-col gap-2 sm:gap-4 md:gap-6 xl:gap-8">
@@ -6,13 +12,19 @@ const SelectCategory = () => {
           Select a vehicle group
         </h5>
 
+
+        
+
         <div className="w-[80%] m-auto flex items-center justify-center gap-5">
-          {Array.from({ length: 6 }).map((_, idx) => (
+          {types.map((Localtype, idx) => (
             <button
               key={idx}
-              className="bg-[#5937e0] p-3 rounded-3xl text-white mt-[40px]"
+              onClick={() => setType(Localtype)}
+              className={`${
+                Localtype == type ? "bg-purple-500" : "bg-gray-500"
+              } p-3 rounded-3xl text-white`}
             >
-              All vehicles
+              {Localtype.toUpperCase()}
             </button>
           ))}
         </div>
