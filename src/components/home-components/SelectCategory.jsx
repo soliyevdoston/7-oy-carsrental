@@ -12,9 +12,6 @@ const SelectCategory = ({ type, setType }) => {
           Select a vehicle group
         </h5>
 
-
-        
-
         <div className="w-[80%] m-auto flex items-center justify-center gap-5">
           {types.map((Localtype, idx) => (
             <button
@@ -22,7 +19,14 @@ const SelectCategory = ({ type, setType }) => {
               onClick={() => setType(Localtype)}
               className={`${
                 Localtype == type ? "bg-purple-500" : "bg-gray-500"
-              } p-3 rounded-3xl text-white`}
+              }  bg-[#c0c0c0]
+        text-black 
+        p-3 
+        rounded-3xl 
+        hover:bg-[#5937e0] 
+        hover:text-white 
+        transition 
+        duration-300`}
             >
               {Localtype.toUpperCase()}
             </button>
