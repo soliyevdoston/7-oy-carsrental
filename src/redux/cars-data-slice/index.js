@@ -11,8 +11,11 @@ const carsDataSlice = createSlice({
   reducers: {
     setData: (state, { payload }) => {
       if (state.data == null) {
-        let types = ["all", ...new Set(payload?.data.map((car) => car.type))];
-        state.categorys = types;
+        const typesArr = [
+          "all",
+          ...new Set(payload.data.map((car) => car.type)),
+        ];
+        state.categorys = typesArr;
       }
       state.data = payload;
     },
